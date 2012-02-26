@@ -8,17 +8,21 @@ public class SistemaDeMatriculacionModerno {
 	private final String SALTO_DE_LINEA = "\n";
 
 	public String process() {
+		//Declaramos las variables que nos har‡n falta
 		String resguardoMatricula = null;
 		AlumnoAventajado alumnoAventajado = null;
 		AlumnoAventajado alumnoMatriculado = null;
 		List<MateriaModerna> listaDeMaterias = null;
 		
+		//Creamos el alumno aventajado y la lista de materias matriculables
 		alumnoAventajado = crearAlumnoAventajado();
 		listaDeMaterias = crearListaDeMateriasModernas();
 		
+		//Si los datos del alumno est‡n bien cumplimentados, procedemos a la matriculaci—n
 		if(alumnoAventajado.sonCorrectosLosDatosPersonales()) {
 			alumnoAventajado.setMateriasMatriculadas(listaDeMaterias);
 			alumnoAventajado.matricularAlumno();
+			//Generamos el resguardo de la matr’cula
 			resguardoMatricula = generaResguardo(alumnoMatriculado);
 		}
 		
