@@ -15,9 +15,9 @@ public class MateriaModernaTest {
 	
 	@Before
 	public void setUp() {
-		materiaTroncal = new MateriaModerna("Programaci—n", 6, "T");
-		materiaObligatoria = new MateriaModerna("Matem‡ticas", 9, "O");
-		otraMateriaObligatoria = new MateriaModerna("Matem‡ticas", 9, "o");
+		materiaTroncal = new MateriaModerna("Programacion", 6, "T");
+		materiaObligatoria = new MateriaModerna("Matematicas", 9, "O");
+		otraMateriaObligatoria = new MateriaModerna("Matematicas", 9, "o");
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ public class MateriaModernaTest {
 	
 	@Test
 	public void datosDeLaMateria() {
-		String programacion = "Programaci—n 6 T";
+		String programacion = "Programacion 6 T";
 		assertEquals(programacion, materiaTroncal.toString());
 	}
 	

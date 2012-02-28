@@ -8,7 +8,7 @@ public class SistemaDeMatriculacionModerno {
 	private final String SALTO_DE_LINEA = "\n";
 
 	public String process() {
-		//Declaramos las variables que nos harán falta
+		//Declaramos las variables que nos har√°n falta
 		String resguardoMatricula = null;
 		AlumnoAventajado alumnoAventajado = null;
 		AlumnoAventajado alumnoMatriculado = null;
@@ -18,11 +18,11 @@ public class SistemaDeMatriculacionModerno {
 		alumnoAventajado = crearAlumnoAventajado();
 		listaDeMaterias = crearListaDeMateriasModernas();
 		
-		//Si los datos del alumno están bien cumplimentados, procedemos a la matriculación
+		//Si los datos del alumno est√°n bien cumplimentados, procedemos a la matriculaci√≥n
 		if(alumnoAventajado.sonCorrectosLosDatosPersonales()) {
 			alumnoAventajado.setMateriasMatriculadas(listaDeMaterias);
 			alumnoAventajado.matricularAlumno();
-			//Generamos el resguardo de la matrícula
+			//Generamos el resguardo de la matr√≠cula
 			resguardoMatricula = generaResguardo(alumnoMatriculado);
 		}
 		
@@ -31,13 +31,13 @@ public class SistemaDeMatriculacionModerno {
 	
 	public AlumnoAventajado crearAlumnoAventajado() {
 		AlumnoAventajado alumnoAventajado = new AlumnoAventajado();
-		alumnoAventajado.insertarDatosPersonales("Alfrodo", "Bolsón", "Cerrado");
+		alumnoAventajado.insertarDatosPersonales("Alfrodo", "Bolson", "Cerrado");
 		return alumnoAventajado;
 	}
 	
 	public List<MateriaModerna> crearListaDeMateriasModernas() {
 		List<MateriaModerna> listaDeMaterias = new ArrayList<MateriaModerna>();
-		MateriaModerna matematicas = new MateriaModerna("Matemáticas",9,"o");
+		MateriaModerna matematicas = new MateriaModerna("Matematicas",9,"o");
 		MateriaModerna programacion = new MateriaModerna("Programacion",6,"t");
 		listaDeMaterias.add(matematicas);
 		listaDeMaterias.add(programacion);

@@ -16,8 +16,8 @@ public class AlumnoAventajado {
 		this.materiasMatriculadas = new ArrayList<MateriaModerna>();
 	}
 	
-	// Si luego hay un mŽtodo para matricular asignaturas, no entiendo el
-	// por quŽ de este! :D
+	// Si luego hay un mï¿½todo para matricular asignaturas, no entiendo el
+	// por quï¿½ de este! :D
 	public AlumnoAventajado(List<MateriaModerna> materias) {
 		this.materiasMatriculadas = materias;
 	}
@@ -32,15 +32,15 @@ public class AlumnoAventajado {
 		return (laCadena == null || "".equals(laCadena));
 	}
 	
-	public boolean elNombreEstaVacio() {
+	private boolean elNombreEstaVacio() {
 		return esUnaCadenaVacia(this.nombre);
 	}
 	
-	public boolean elPrimerApellidoEstaVacio() {
+	private boolean elPrimerApellidoEstaVacio() {
 		return esUnaCadenaVacia(this.primerApellido);
 	}
 	
-	public boolean elSegundoApellidoEstaVacio() {
+	private boolean elSegundoApellidoEstaVacio() {
 		return esUnaCadenaVacia(this.segundoApellido);
 	}
 	
@@ -93,7 +93,7 @@ public class AlumnoAventajado {
 	}
 	
 	private boolean hayAlgunaMateriaObligatoriaEnLaLista(List<MateriaModerna> listaDeMaterias){
-		for(MateriaModerna materia : this.materiasMatriculadas){
+		for(MateriaModerna materia : listaDeMaterias){
 			if(materia.isObligatoria()){
 				return true;
 			}
