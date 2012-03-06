@@ -1,6 +1,5 @@
 package formacion.talleres.junit;
 import java.util.List;
-import java.util.ArrayList;
 
 
 
@@ -11,16 +10,6 @@ public class AlumnoAventajado {
 	private String primerApellido;
 	private String segundoApellido;
 	private List<MateriaModerna> materiasMatriculadas;
-	
-	public AlumnoAventajado() {
-		this.materiasMatriculadas = new ArrayList<MateriaModerna>();
-	}
-	
-	// Si luego hay un m�todo para matricular asignaturas, no entiendo el
-	// por qu� de este! :D
-	public AlumnoAventajado(List<MateriaModerna> materias) {
-		this.materiasMatriculadas = materias;
-	}
 	
 	public void insertarDatosPersonales(String nombre, String primerApellido, String segundoApellido) {
 		this.nombre = nombre;
