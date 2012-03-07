@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,18 @@ public class SistemaDeMatriculacionModernoTest {
 	}
 	
 	@Test
-	public void recuperamosMateriasMatriculadasDesAlumnoDentroDeGenerarResguardo() {
+	public void recuperamosMateriasMatriculadasDeAlumnoDentroDeGenerarResguardo() {
+		when(alumnoAventajado.obtenerNombreYApellidos()).thenReturn("");
+		when(materiaModerna.toString()).thenReturn("");
+		when(alumnoAventajado.getMateriasMatriculadas()).thenReturn(materiasMatriculadas);
+		
+		sistemaDeMatriculacion.generaResguardo(alumnoAventajado);
+		
+		verify(alumnoAventajado, times(1)).getMateriasMatriculadas();
+	}
+	
+	@Test
+	public void recuperamosSoloUnaVezMateriasMatriculadasDeAlumnoDentroDeGenerarResguardo() {
 		when(alumnoAventajado.obtenerNombreYApellidos()).thenReturn("");
 		when(materiaModerna.toString()).thenReturn("");
 		when(alumnoAventajado.getMateriasMatriculadas()).thenReturn(materiasMatriculadas);
