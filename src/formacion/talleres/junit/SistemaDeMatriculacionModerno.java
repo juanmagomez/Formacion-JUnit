@@ -5,7 +5,7 @@ import java.util.List;
 
 public class SistemaDeMatriculacionModerno {
 	
-	private final String SALTO_DE_LINEA = "\n";
+	public final String SALTO_DE_LINEA = "\n";
 
 	public String process() {
 		//Declaramos las variables que nos harán falta

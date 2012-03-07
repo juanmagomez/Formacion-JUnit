@@ -4,7 +4,7 @@ public class MateriaModerna {
 
 	private String nombre;
 	private int creditos;
-	//Tipos: "O" - Obligatoria; "T" - Troncal; "OP" - Optativa; "LC" - Libre Configuración
+	//Tipos: "O" - Obligatoria; "T" - Troncal; "OP" - Optativa; "LC" - Libre Configuraci√≥n
 	private String tipo;
 	private boolean preMatriculada;
 	private boolean matriculada;
