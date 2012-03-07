@@ -3,6 +3,7 @@ package formacion.talleres.junit;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,23 @@ import org.junit.Test;
 
 public class SistemaDeMatriculacionModernoTest {
 
+	@Test
+	public void recuperamosMateriasMatriculadasDesAlumnoDentroDeGenerarResguardo() {
+		SistemaDeMatriculacionModerno sistemaDeMatriculacion = new SistemaDeMatriculacionModerno();
+		AlumnoAventajado alumnoAventajado = mock(AlumnoAventajado.class);
+		MateriaModerna materiaModerna = mock(MateriaModerna.class);
+		List<MateriaModerna> materiasMatriculadas = new ArrayList<MateriaModerna>();
+		materiasMatriculadas.add(materiaModerna);
+		
+		when(alumnoAventajado.obtenerNombreYApellidos()).thenReturn("");
+		when(materiaModerna.toString()).thenReturn("");
+		when(alumnoAventajado.getMateriasMatriculadas()).thenReturn(materiasMatriculadas);
+		
+		sistemaDeMatriculacion.generaResguardo(alumnoAventajado);
+		
+		verify(alumnoAventajado).getMateriasMatriculadas();
+	}
+	
 	@Test
 	public void generarResguardoTest() {
 		SistemaDeMatriculacionModerno sistemaDeMatriculacion = new SistemaDeMatriculacionModerno();
