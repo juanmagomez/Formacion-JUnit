@@ -19,6 +19,11 @@ public class SistemaDeMatriculacionModernoTest {
 	MateriaModerna materiaModerna;
 	List<MateriaModerna> materiasMatriculadas;
 	
+	String SEPARADOR;
+	String NOMBRE_ALUMNO;
+	String MATERIA_TO_STRING;
+	String ALUMNO_Y_MATERIAS;
+	
 	@Before
 	public void setUp() {
 		sistemaDeMatriculacion = new SistemaDeMatriculacionModerno();
@@ -26,41 +31,32 @@ public class SistemaDeMatriculacionModernoTest {
 		materiaModerna = mock(MateriaModerna.class);
 		materiasMatriculadas = new ArrayList<MateriaModerna>();
 		materiasMatriculadas.add(materiaModerna);
-	}
-	
-	@Test
-	public void recuperamosMateriasMatriculadasDeAlumnoDentroDeGenerarResguardo() {
-		when(alumnoAventajado.obtenerNombreYApellidos()).thenReturn("");
-		when(materiaModerna.toString()).thenReturn("");
-		when(alumnoAventajado.getMateriasMatriculadas()).thenReturn(materiasMatriculadas);
 		
-		sistemaDeMatriculacion.generaResguardo(alumnoAventajado);
-		
-		verify(alumnoAventajado, times(1)).getMateriasMatriculadas();
-	}
-	
-	@Test
-	public void recuperamosSoloUnaVezMateriasMatriculadasDeAlumnoDentroDeGenerarResguardo() {
-		when(alumnoAventajado.obtenerNombreYApellidos()).thenReturn("");
-		when(materiaModerna.toString()).thenReturn("");
-		when(alumnoAventajado.getMateriasMatriculadas()).thenReturn(materiasMatriculadas);
-		
-		sistemaDeMatriculacion.generaResguardo(alumnoAventajado);
-		
-		verify(alumnoAventajado).getMateriasMatriculadas();
-	}
-	
-	@Test
-	public void generarResguardoTest() {
-		String SEPARADOR = sistemaDeMatriculacion.SALTO_DE_LINEA;
-		String NOMBRE_ALUMNO = "Perico el de los palotes";
-		String MATERIA_TO_STRING = "Materia 1";
-		String ALUMNO_Y_MATERIAS = NOMBRE_ALUMNO + SEPARADOR + MATERIA_TO_STRING + SEPARADOR;
+		SEPARADOR = sistemaDeMatriculacion.SALTO_DE_LINEA;
+		NOMBRE_ALUMNO = "Perico el de los palotes";
+		MATERIA_TO_STRING = "Materia 1";
+		ALUMNO_Y_MATERIAS = NOMBRE_ALUMNO + SEPARADOR + MATERIA_TO_STRING + SEPARADOR;
 		
 		when(alumnoAventajado.obtenerNombreYApellidos()).thenReturn(NOMBRE_ALUMNO);
 		when(materiaModerna.toString()).thenReturn(MATERIA_TO_STRING);
 		when(alumnoAventajado.getMateriasMatriculadas()).thenReturn(materiasMatriculadas);
 		
+	}
+	
+	@Test
+	public void recuperamosMateriasMatriculadasDeAlumnoDentroDeGenerarResguardo() {
+		sistemaDeMatriculacion.generaResguardo(alumnoAventajado);
+		verify(alumnoAventajado, times(1)).getMateriasMatriculadas();
+	}
+	
+	@Test
+	public void recuperamosSoloUnaVezMateriasMatriculadasDeAlumnoDentroDeGenerarResguardo() {
+		sistemaDeMatriculacion.generaResguardo(alumnoAventajado);
+		verify(alumnoAventajado).getMateriasMatriculadas();
+	}
+	
+	@Test
+	public void generarResguardoTest() {
 		assertEquals(ALUMNO_Y_MATERIAS, sistemaDeMatriculacion.generaResguardo(alumnoAventajado));
 	}
 }
